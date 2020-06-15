@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def to_usd(my_price):
-    return "${0:,.2f}".format(my_price)  # > $12,000.71
+    return "${0:,.2f}".format(my_price)  
 
 
 valid_ids = 201801 #The infinite loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
