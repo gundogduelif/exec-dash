@@ -30,7 +30,7 @@ month_total = all_data["month"].sum()
 
 months = range(1,4)
 plt.title("THE HIGHEST SALES")
-plt.bar(months, results["sales price"])
+plt.bar(months, results["sales price"], color='y')
 plt.ylabel("Sales in USD ($)")
 plt.xlabel("Months")
 for i in range(len(results["sales price"])):
