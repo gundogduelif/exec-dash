@@ -2,6 +2,7 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
+import numpy
 ## utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)  # > $12,000.71
@@ -29,6 +30,11 @@ monthly_total = reportsales["sales price"].sum()
 product_totals = reportsales.groupby(["product"]).sum()
 product_totals = product_totals.sort_values("sales price", ascending=False)
 
+
+
+
+
+
 top_sellers = []
 rank = 1
 for i, row in product_totals.iterrows():
@@ -40,9 +46,6 @@ print("-----------------------")
 print("MONTH: JANUARY 2018")
 
 print("-----------------------")
-print("CRUNCHING THE DATA...")
-
-print("-----------------------")
 print(f"TOTAL MONTHLY SALES: {to_usd(monthly_total)}")
 
 print("-----------------------")
@@ -50,3 +53,15 @@ print("TOP SELLING PRODUCTS:")
 for d in top_sellers:
     print("  " + str(d["rank"]) + ") " + d["name"] +
           ": " + to_usd(d["monthly_sales"]))
+
+#plt.bar(reportsales["sales price"],reportsales.groupby(["product"]))        
+
+#months = range(1,13)
+#print(months)
+product_group = reportsales.groupby(["product"])
+quantity_ordered = product_group.sum()['sales price']
+#reportsales["sales price"].sum()
+keys = [pair for pair, reportsales in product_group]
+plt.bar(keys, quantity_ordered)
+plt.xticks(keys, rotation='vertical', size=8)
+plt.show()
