@@ -1,9 +1,8 @@
 
-#pip3 jupyter
-#pandas
-#matplotlib
+# THIRD PARTY PACKAGES & MODULES
+# 1) pandas 
+# 2) numpy 
+# 3) os 
+# 4) matplotlib.pyplot 
 
-#references
-# 1) #https://www.youtube.com/watch?v=eMOA1pPVUc4
-# 2)#REFERENCE 2 : https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart
-# 3) https://github.com/prof-rossetti/intro-to-python/blob/master/exercises/monthly-sales-reporting/pandas_solution_further.py
+

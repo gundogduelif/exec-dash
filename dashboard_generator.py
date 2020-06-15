@@ -4,12 +4,11 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-## utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)  # > $12,000.71
 
 
-valid_ids = 201801                      #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
+valid_ids = 201801 #The infinite loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
 var = 1       
 while var == 1 :
     try:
@@ -22,7 +21,7 @@ while var == 1 :
         print("Please make sure to enter a number! Try again!")
         
 
-filename = "sales-201801.csv"
+filename = "sales-201801.csv"   # Read csv file into a pandas dataframe object REFERENCE: https://github.com/prof-rossetti/intro-to-python/blob/master/exercises/monthly-sales-reporting/pandas_solution_further.py
 csv_filepath = os.path.join("data", filename)
 reportsales = pd.read_csv(csv_filepath)
 print(reportsales.head())
@@ -52,7 +51,7 @@ for d in top_sellers:
 
 
 
-#BAR CHART 
+#Bar Chart REFERENCE: # 1) #https://www.youtube.com/watch?v=eMOA1pPVUc4
 
 product_group = reportsales.groupby(["product"])
 quantity_ordered = product_group.sum()["sales price"]
@@ -63,20 +62,7 @@ plt.bar(keys, quantity_ordered)
 plt.ylabel("Sales in USD ($)")
 plt.xlabel("Products")
 for i in range(len(quantity_ordered)):
-    plt.annotate(to_usd(quantity_ordered[i]), xy=(keys[i],quantity_ordered[i]))
+    plt.annotate(to_usd(quantity_ordered[i]), xy=(keys[i],quantity_ordered[i])) #Annotate REFERENCE: https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart
 
 plt.xticks(keys, rotation='vertical', size=8)
 plt.show()
-
-
-#REFERENCE 2 : https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart
-#n = [1,2,3,4,5,]
-#s = [i**2 for i in n]
-#line = plt.bar(n,s)
-#plt.xlabel('Number')
-#plt.ylabel("Square")
-#for i in range(len(s)):
-# plt.annotate(str(s[i]), xy=(n[i],s[i]))
-#
-#plt.show()
-#
