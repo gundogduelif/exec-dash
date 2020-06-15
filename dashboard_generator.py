@@ -13,9 +13,18 @@ while var == 1 :
     try:
         report_id = int(input("Please report number from 201801 to 201803:"))
         if report_id in valid_ids:
-           
            report_ids.append(report_id)
-        
+           break
+        else:
+            print("Please make sure to enter a valid report number!")
+            break
+           # while var == 1: 
+            # report_id = int(input("Please report number from 201801 to 201803:")) 
+             #if report_id in valid_ids:
+               #report_ids.append(report_id)
+             #else:
+                 #print("Restart") 
+                 #break        
     except ValueError:
         print("Invalid report number!Please try again!")
         break
