@@ -8,28 +8,29 @@ def to_usd(my_price):
 #
 valid_ids = range(201801, 201804, 1)           #Range Approach REFERENCE: https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.            
 report_ids = []                       #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
-var = 1                
+var = 1     
+          
 while var == 1 :
     try:
-        report_id = int(input("Please report number from 201801 to 201803:"))
+        report_id = int(input("Please enter a report number from 201801 to 201803: or type: 'QUIT' "))
         if report_id in valid_ids:
            report_ids.append(report_id)
-           break
+           while True:
+            x = input("Do you want to add more report? If yes, please enter a valid report number from 201801 to 201803:. If no, please type DONE: ")
+            if x in valid_ids:
+               report_ids.append(x)
+            else:
+                report_id == "DONE"
+                break
+                print("REPORT NUMBERS INCLUDE:",(report_ids))
         else:
-            print("Please make sure to enter a valid report number!")
-            break
-           # while var == 1: 
-            # report_id = int(input("Please report number from 201801 to 201803:")) 
-             #if report_id in valid_ids:
-               #report_ids.append(report_id)
-             #else:
-                 #print("Restart") 
-                 #break        
+           report_id == "QUIT"
+           print("REPORT NUMBER IS:",(report_ids))   
+           break         
     except ValueError:
-        print("Invalid report number!Please try again!")
+        print("Please make sure to enter a valid report number!Please try again!")
         break
 print("REPORT NUMBERS INCLUDE:",(report_ids))
-
 
 #valid_ids = range (1, 21, 1)           #Range Approach REFERENCE: https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.            
 #product_ids = []                       #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
