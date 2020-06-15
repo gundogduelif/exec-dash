@@ -10,7 +10,7 @@ def to_usd(my_price):
 
 
 valid_ids = 201801                      #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
-var = 1     
+var = 1       
 while var == 1 :
     try:
         report_id = int(input("Please enter a valid report number:"))
@@ -31,11 +31,6 @@ monthly_total = reportsales["sales price"].sum()
 product_totals = reportsales.groupby(["product"]).sum()
 product_totals = product_totals.sort_values("sales price", ascending=False)
 
-
-
-
-
-
 top_sellers = []
 rank = 1
 for i, row in product_totals.iterrows():
@@ -55,6 +50,8 @@ for d in top_sellers:
     print("  " + str(d["rank"]) + ") " + d["name"] +
           ": " + to_usd(d["monthly_sales"]))
 
+
+
 #BAR CHART 
 
 product_group = reportsales.groupby(["product"])
@@ -70,6 +67,7 @@ for i in range(len(quantity_ordered)):
 
 plt.xticks(keys, rotation='vertical', size=8)
 plt.show()
+
 
 #REFERENCE 2 : https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart
 #n = [1,2,3,4,5,]
