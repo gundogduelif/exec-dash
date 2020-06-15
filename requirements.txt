@@ -5,3 +5,4 @@
 
 #references
 # 1) #https://www.youtube.com/watch?v=eMOA1pPVUc4
+# 2)#REFERENCE 2 : https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart

@@ -2,7 +2,8 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-import numpy
+import numpy as np
+
 ## utility function to convert float or integer to usd-formatted string (for printing)
 def to_usd(my_price):
     return "${0:,.2f}".format(my_price)  # > $12,000.71
@@ -54,14 +55,30 @@ for d in top_sellers:
     print("  " + str(d["rank"]) + ") " + d["name"] +
           ": " + to_usd(d["monthly_sales"]))
 
-#plt.bar(reportsales["sales price"],reportsales.groupby(["product"]))        
+#BAR CHART 
 
-#months = range(1,13)
-#print(months)
 product_group = reportsales.groupby(["product"])
-quantity_ordered = product_group.sum()['sales price']
-#reportsales["sales price"].sum()
+quantity_ordered = product_group.sum()["sales price"]
 keys = [pair for pair, reportsales in product_group]
+plt.title("JANUARY 2018 TOP SELLING  PRODUCTS")
 plt.bar(keys, quantity_ordered)
+
+plt.ylabel("Sales in USD ($)")
+plt.xlabel("Products")
+for i in range(len(quantity_ordered)):
+    plt.annotate(str(quantity_ordered[i]), xy=(keys[i],quantity_ordered[i]))
+
 plt.xticks(keys, rotation='vertical', size=8)
 plt.show()
+
+#REFERENCE 2 : https://stackoverflow.com/questions/28931224/adding-value-labels-on-a-matplotlib-bar-chart
+#n = [1,2,3,4,5,]
+#s = [i**2 for i in n]
+#line = plt.bar(n,s)
+#plt.xlabel('Number')
+#plt.ylabel("Square")
+#for i in range(len(s)):
+# plt.annotate(str(s[i]), xy=(n[i],s[i]))
+#
+#plt.show()
+#

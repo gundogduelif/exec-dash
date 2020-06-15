@@ -47,3 +47,10 @@ for d in top_sellers:
 
 
 
+product_group = all_data.groupby(["product"])
+quantity_ordered = product_group.sum()['sales price']
+#reportsales["sales price"].sum()
+keys = [pair for pair, all_data in product_group]
+plt.bar(keys, quantity_ordered)
+plt.xticks(keys, rotation='vertical', size=8)
+plt.show()
