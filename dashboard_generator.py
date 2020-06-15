@@ -66,7 +66,7 @@ plt.bar(keys, quantity_ordered)
 plt.ylabel("Sales in USD ($)")
 plt.xlabel("Products")
 for i in range(len(quantity_ordered)):
-    plt.annotate(str(quantity_ordered[i]), xy=(keys[i],quantity_ordered[i]))
+    plt.annotate(to_usd(quantity_ordered[i]), xy=(keys[i],quantity_ordered[i]))
 
 plt.xticks(keys, rotation='vertical', size=8)
 plt.show()
