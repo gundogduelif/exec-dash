@@ -1,0 +1,7 @@
+
+#pip3 jupyter
+#pandas
+#matplotlib
+
+#references
+# 1) #https://www.youtube.com/watch?v=eMOA1pPVUc4
